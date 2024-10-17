@@ -6,6 +6,11 @@ public class JuegoAhorcado {
     private int intentosMaximos;
     private ArrayList<Character> letrasFallidas;
 
+    /**
+     * inicializa el juego con una palabra y un número de intentos.
+     * @param palabra
+     * @param intentos
+     */
     public JuegoAhorcado(Palabra palabra, int intentos) {
         this.palabra = palabra;
         this.intentosMaximos = intentos;
@@ -16,6 +21,14 @@ public class JuegoAhorcado {
         this(palabra, 6);
     }
 
+    /**
+     * El método que inicia y controla el ciclo del juego
+     * Muestra cuántos intentos le quedan al jugador.
+     * Pide al jugador que ingrese una letra y revisa si esa letra está en la palabra.
+     * Si el jugador adivina correctamente, la letra se muestra en su posición.
+     * Si el jugador se equivoca, se le resta un intento.
+     * Si adivina toda la palabra, el juego termina con un mensaje de victoria. Si se le acaban los intentos, el jugador pierde.
+     */
     public void iniciar() {
         Scanner scanner = new Scanner(System.in);
         int intentosRestantes = intentosMaximos;
@@ -45,6 +58,11 @@ public class JuegoAhorcado {
         }
     }
 
+    /**
+     * Muestra una figura del "ahorcado" según la cantidad de errores. Entre más errores, más completo estará el dibujo del ahorcado.
+     * @param errores
+     *
+     */
     private void mostrarAhorcado(int errores) {
         switch (errores) {
             case 0:

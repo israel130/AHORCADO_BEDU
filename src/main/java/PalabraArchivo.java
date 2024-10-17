@@ -8,10 +8,17 @@ public class PalabraArchivo extends Palabra {
         super(palabra);
     }
 
+    /**
+     * Esta clase extiende la clase Palabra y está diseñada para cargar palabras de un archivo de texto.
+     * @throws IOException
+     */
     public PalabraArchivo() throws IOException {
         super(cargarPalabraDeArchivo());
     }
 
+    /**
+     * Muestra la palabra oculta con guiones bajos _ para las letras que aún no han sido adivinadas y muestra las letras que ya se han acertado.
+     */
     @Override
     public void mostrarPalabra() {
         for (char letra : palabraOculta.toCharArray()) {
@@ -24,6 +31,11 @@ public class PalabraArchivo extends Palabra {
         System.out.println();
     }
 
+    /**
+     * Este método lee un archivo llamado "Palabras.txt" que contiene una lista de palabras.
+     * @return
+     * @throws IOException
+     */
     public static String cargarPalabraDeArchivo() throws IOException {
         ArrayList<String> palabras = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("C:/JAVA/PROYECTO/src/main/resources/Palabras.txt"))) {

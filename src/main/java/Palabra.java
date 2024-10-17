@@ -11,6 +11,13 @@ public abstract class Palabra {
 
     public abstract void mostrarPalabra();
 
+    /**
+     * Verifica si una letra está en la palabra oculta.
+     * Si está, la agrega a la lista de letras adivinadas y devuelve true.
+     * Si no está, devuelve false.
+     * @param letra
+     * @return
+     */
     public boolean adivinarLetra(char letra) {
         boolean encontrada = false;
         if (palabraOculta.contains(Character.toString(letra))) {
@@ -20,6 +27,12 @@ public abstract class Palabra {
         return encontrada;
     }
 
+    /**
+     * Revisa si el jugador ha adivinado todas las letras de la palabra.
+     * Si todas las letras han sido adivinadas, devuelve true.
+     * Si falta alguna letra, devuelve false.
+     * @return
+     */
     public boolean palabraCompleta() {
         for (char letra : palabraOculta.toCharArray()) {
             if (!letrasAdivinadas.contains(letra)) {
